@@ -16,6 +16,7 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
 
     private lateinit var text: List<TextView>
     private lateinit var hold: List<CheckBox>
+    private var scor =0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,5 +52,13 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
 
         }
 
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            val gain = data?.getIntExtra("gain", 0) ?: 0
+            scor += gain
+            Toast.makeText(this, "Scor: $scor", Toast.LENGTH_LONG).show()
+        }
     }
 }

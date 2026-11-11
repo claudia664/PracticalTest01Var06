@@ -20,6 +20,7 @@ class PracticalTest01Var06SecondaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical_test01_var06_secondary)
 
+
         val nr = intent.getStringArrayExtra("numbers") ?: arrayOf()
         val casute = intent.getIntExtra("checked", 0)
         val faraJoker = nr.filter { it != "*" }
