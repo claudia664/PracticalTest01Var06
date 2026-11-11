@@ -23,7 +23,7 @@ class PracticalTest01Var06SecondaryActivity : AppCompatActivity() {
         val nr = intent.getStringArrayExtra("numbers") ?: arrayOf()
         val casute = intent.getIntExtra("checked", 0)
         val faraJoker = nr.filter { it != "*" }
-        val castiguri = faraJoker.distinct().size <= 1
+        val castiguri = faraJoker.isNotEmpty() && faraJoker.distinct().size <= 1
         val gain = if (castiguri) {
             when (casute) {
                 0 -> 100
