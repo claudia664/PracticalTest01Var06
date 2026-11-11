@@ -51,6 +51,10 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
 
 
         }
+        if (savedInstanceState != null && savedInstanceState.containsKey("scor")) {
+            scor = savedInstanceState.getInt("scor")
+            Toast.makeText(this, "Scor: $scor", Toast.LENGTH_LONG).show()
+        }
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -60,5 +64,9 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
             scor += gain
             Toast.makeText(this, "Scor: $scor", Toast.LENGTH_LONG).show()
         }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("scor", scor)
     }
 }
