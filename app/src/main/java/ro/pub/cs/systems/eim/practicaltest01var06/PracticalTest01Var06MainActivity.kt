@@ -1,5 +1,6 @@
 package ro.pub.cs.systems.eim.practicaltest01var06
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -42,6 +43,11 @@ class PracticalTest01Var06MainActivity : AppCompatActivity() {
             val values = text.map { it.text.toString() }
             val mesaj = values.joinToString(" ")
             Toast.makeText(this, mesaj, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, PracticalTest01Var06SecondaryActivity::class.java)
+            intent.putExtra("numbers", values.toTypedArray())
+            intent.putExtra("checked", hold.count { it.isChecked })
+            startActivityForResult(intent, 1)
+
 
         }
 
